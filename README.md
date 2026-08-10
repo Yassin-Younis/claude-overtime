@@ -14,7 +14,23 @@ lid closed — and restores normal sleep the moment the last agent exits.
 No more coming back to a MacBook that went to sleep mid-task and killed a
 long agent run. Claude clocks in for the night shift; you go to bed.
 
+<p align="center">
+  <img src="assets/menu.png" width="480" alt="The Claude Overtime menu">
+</p>
+
 ## Install
+
+**Homebrew** (Apple Silicon, prebuilt):
+
+```sh
+brew install --cask yassin-younis/tap/claude-overtime
+```
+
+Then launch it once from /Applications — right-click → Open (the prebuilt
+app is ad-hoc signed, so macOS warns on first open).
+
+**From source** (any Mac; requires Xcode Command Line Tools,
+`xcode-select --install`):
 
 ```sh
 git clone https://github.com/Yassin-Younis/claude-overtime.git
@@ -22,15 +38,13 @@ cd claude-overtime
 bash build.sh
 ```
 
-That's it — the orange mascot appears in your menu bar (requires the Xcode
-Command Line Tools: `xcode-select --install`). The first time lid-closed
-support is needed, the app asks for your admin password through the
-standard macOS dialog and installs its helper automatically.
+That's it — the orange mascot appears in your menu bar. The first time
+lid-closed support is needed, the app asks for your admin password through
+the standard macOS dialog and installs its helper automatically.
 
-Prefer a prebuilt app? Grab `ClaudeOvertime.app.zip` from
+You can also grab `ClaudeOvertime.app.zip` straight from
 [Releases](https://github.com/Yassin-Younis/claude-overtime/releases)
-(Apple Silicon). It's ad-hoc signed, so macOS will warn on first open:
-right-click the app → Open → Open.
+(Apple Silicon) — same right-click → Open note applies.
 
 ## How it works
 

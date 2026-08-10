@@ -49,6 +49,7 @@ func shell(_ launchPath: String, _ args: [String]) -> String {
 final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     var statusItem: NSStatusItem!
     var timer: Timer?
+    var signalSource: DispatchSourceSignal?
     var assertionID: IOPMAssertionID = 0
     var assertionActive = false
 
@@ -76,6 +77,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
             self?.refresh()
         }
+        // SIGUSR1 opens the menu — lets scripts/screenshots trigger it
+        // without Accessibility permissions.
+        signal(SIGUSR1, SIG_IGN)
+        let sig = DispatchSource.makeSignalSource(signal: SIGUSR1, queue: .main)
+        sig.setEventHandler { [weak self] in self?.statusItem.button?.performClick(nil) }
+        sig.resume()
+        signalSource = sig
         // Self-healing: if lid-closed is enabled but the helper is missing
         // (or older than the one bundled in this app), prompt to install it.
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
