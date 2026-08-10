@@ -7,6 +7,13 @@
 
 <p align="center"><b>Close the lid. Claude keeps working.</b></p>
 
+<p align="center">
+  <a href="https://github.com/Yassin-Younis/claude-overtime/releases"><img src="https://img.shields.io/github/v/release/Yassin-Younis/claude-overtime" alt="Release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT"></a>
+  <img src="https://img.shields.io/badge/macOS-13%2B-blue" alt="macOS 13+">
+  <a href="https://github.com/Yassin-Younis/claude-overtime/stargazers"><img src="https://img.shields.io/github/stars/Yassin-Younis/claude-overtime?style=social" alt="Stars"></a>
+</p>
+
 A macOS menu bar app that keeps your Mac awake while agentic coding CLIs
 (Claude Code, Codex, Gemini CLI, and friends) are running — even with the
 lid closed — and restores normal sleep the moment the last agent exits.
